@@ -93,8 +93,12 @@ class BdrcScraper:
 
 
 if __name__ == "__main__":
+    from search_bdrc.utils import write_json
+
     scraper = BdrcScraper()
 
     input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
     no_of_page = 44
     ids = scraper.get_related_instance_ids(input, no_of_page)
+
+    write_json(ids, "res.json")

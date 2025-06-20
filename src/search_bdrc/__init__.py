@@ -5,7 +5,9 @@ It uses Playwright for web scraping and multiprocessing for parallel page retrie
 import re
 from multiprocessing import Pool
 
+import requests
 from playwright.sync_api import sync_playwright
+from rdflib import Graph
 from tqdm import tqdm
 
 from search_bdrc.config import get_logger
@@ -90,14 +92,40 @@ class BdrcScraper:
         logger.info(f"Total unique instance IDs found: {len(ids)}")
         return ids
 
+    @staticmethod
+    def get_instance_metadata(instance_id: str):
+        url = f"https://purl.bdrc.io/resource/{instance_id}.ttl"  # noqa
+        headers = {"Accept": "text/turtle"}  # Requesting Turtle format
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.text
+            g = Graph()
+            g.parse(data=data, format="turtle")
+
+            return g
+        else:
+            logger.error(
+                f"Failed to retrieve metadata from instance {instance_id}: {response.status_code}"
+            )
+
+    def get_work_of_instance(self, instance_id: str):
+        metadata = self.get_instance_metadata(instance_id)
+
+        for subj, pred, obj in metadata:
+            if str(pred) == "http://purl.bdrc.io/ontology/core/workHasInstance":
+                pass
+
 
 if __name__ == "__main__":
     from search_bdrc.utils import write_json
 
     scraper = BdrcScraper()
 
-    input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
-    no_of_page = 44
-    ids = scraper.get_related_instance_ids(input, no_of_page)
+    # input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
+    # no_of_page = 44
+    # ids = scraper.get_related_instance_ids(input, no_of_page)
+    # write_json(ids, "res.json")
 
-    write_json(ids, "res.json")
+    instance_id = "IE0OPIFAE16D6A"
+    res = scraper.get_work_of_instance(instance_id)
+    write_json(res, "data.json")

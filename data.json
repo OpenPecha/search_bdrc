@@ -1,0 +1,52 @@
+[
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/OPFOCRTimeStamp",
+    "obj": "2022-08-25T00:00:00+00:00"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/instanceReproductionOf",
+    "obj": "http://purl.bdrc.io/resource/W2PD19997"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/instanceReproductionOf",
+    "obj": "http://purl.bdrc.io/resource/MW2PD19997"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/OPFOCRBatch",
+    "obj": "batch-0001"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/OPFOCRSource",
+    "obj": "bdrc"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "obj": "http://purl.bdrc.io/ontology/core/EtextInstance"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/instanceHasVolume",
+    "obj": "http://purl.bdrc.io/resource/VLIE0OPIFAE16D6A_I2PD20007"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/instanceOf",
+    "obj": "http://purl.bdrc.io/resource/WA2PD19997"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/OPFOCRSoftware",
+    "obj": "norbuketaka"
+  },
+  {
+    "subj": "http://purl.bdrc.io/resource/IE0OPIFAE16D6A",
+    "pred": "http://purl.bdrc.io/ontology/core/inCollection",
+    "obj": "http://purl.bdrc.io/resource/PR1ER1"
+  }
+]

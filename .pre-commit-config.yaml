@@ -35,7 +35,6 @@ repos:
     rev: v0.982
     hooks:
       - id: mypy
-        additional_dependencies: [types-all]
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:

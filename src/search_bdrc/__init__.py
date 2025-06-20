@@ -25,7 +25,7 @@ class Scraper:
             browser.close()
         return page_no, content
 
-    def run(self, input: str, no_of_page: int, processes: int = 4):
+    def run_scrape(self, input: str, no_of_page: int, processes: int = 4):
         page_args = [(input, page_no) for page_no in range(1, no_of_page + 1)]
         res = {}
         with Pool(processes=processes) as pool:
@@ -41,4 +41,16 @@ class Scraper:
         ids = re.findall(self.instance_id_regex, text)
         # Remove duplicate
         ids = list(set(ids))
+        return ids
+
+    def get_related_instance_ids(
+        self, input: str, no_of_page: int, processes: int = 4
+    ) -> list[str]:
+        scraped = self.run_scrape(input, no_of_page, processes)
+
+        ids = []
+        for _, content in scraped.items():
+            ids_in_page = self.extract_instance_ids(content)
+            ids.extend(ids_in_page)
+
         return ids

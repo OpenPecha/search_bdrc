@@ -6,9 +6,12 @@ import re
 from multiprocessing import Pool
 from pathlib import Path
 
-from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 from tqdm import tqdm
+
+from search_bdrc.config import get_logger
+
+logger = get_logger(__name__)
 
 
 class Scraper:

@@ -97,6 +97,4 @@ if __name__ == "__main__":
 
     input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
     no_of_page = 44
-    logger.info(f"Running scraper for input: {input}, pages: {no_of_page}")
     ids = scraper.get_related_instance_ids(input, no_of_page)
-    logger.info(f"Scraping finished. Found {len(ids)} unique instance IDs.")

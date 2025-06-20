@@ -4,7 +4,6 @@ It uses Playwright for web scraping and multiprocessing for parallel page retrie
 """
 import re
 from multiprocessing import Pool
-from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 from tqdm import tqdm

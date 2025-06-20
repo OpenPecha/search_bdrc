@@ -10,8 +10,6 @@ from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 from tqdm import tqdm
 
-text = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
-
 
 class Scraper:
     def __init__(self):
@@ -73,4 +71,14 @@ class Scraper:
             ids_in_page = self.extract_instance_ids(content)
             ids.extend(ids_in_page)
 
+        # remove duplicates
+        ids = list(set(ids))
         return ids
+
+
+if __name__ == "__main__":
+    scraper = Scraper()
+
+    input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
+    no_of_page = 44
+    scraper.get_related_instance_ids(input, no_of_page)

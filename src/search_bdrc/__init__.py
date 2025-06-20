@@ -1,5 +1,5 @@
 """
-This module provides a Scraper class for extracting instance IDs from the BDRC library search results.
+This module provides a BdrcScraper class for extracting instance IDs from the BDRC library search results.
 It uses Playwright for web scraping and multiprocessing for parallel page retrieval.
 """
 import re
@@ -14,10 +14,10 @@ from search_bdrc.config import get_logger
 logger = get_logger(__name__)
 
 
-class Scraper:
+class BdrcScraper:
     def __init__(self):
         """
-        Initialize the Scraper with a regex pattern for extracting instance IDs from HTML content.
+        Initialize the BdrcScraper with a regex pattern for extracting instance IDs from HTML content.
         """
         self.instance_id_regex = r"<a\shref=\"/show/bdr:([A-Z0-9_]+)\?"
 
@@ -51,7 +51,7 @@ class Scraper:
         res = {}
         with Pool(processes=processes) as pool:
             for page_no, content in tqdm(
-                pool.imap_unordered(Scraper.scrape, page_args),
+                pool.imap_unordered(BdrcScraper.scrape, page_args),
                 total=no_of_page,
                 desc="Scraping pages from bdrc",
             ):
@@ -93,7 +93,7 @@ class Scraper:
 
 
 if __name__ == "__main__":
-    scraper = Scraper()
+    scraper = BdrcScraper()
 
     input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
     no_of_page = 44

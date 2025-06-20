@@ -11,19 +11,26 @@ text = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན
 
 
 class Scraper:
-    def scrape(self, input: str, page_no: int):
-        url = f"https://library.bdrc.io/osearch/search?q={text}&uilang=bo&page={page_no}"  # noqa
+    @staticmethod
+    def scrape(args):
+        input, page_no = args
+        url = f"https://library.bdrc.io/osearch/search?q={input}&uilang=bo&page={page_no}"  # noqa
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
             page.goto(url, wait_until="networkidle")  # waits for JS to load
             content = page.content()
             browser.close()
-        return content
+        return page_no, content
 
-    def run(self, input: str, no_of_page: int):
+    def run(self, input: str, no_of_page: int, processes: int = 4):
+        page_args = [(input, page_no) for page_no in range(1, no_of_page + 1)]
         res = {}
-        for page_no in range(1, no_of_page + 1):
-            res[page_no] = self.scrape(input, page_no)
-
+        with Pool(processes=processes) as pool:
+            for page_no, content in tqdm(
+                pool.imap_unordered(Scraper.scrape, page_args),
+                total=no_of_page,
+                desc="Scraping pages from bdrc",
+            ):
+                res[page_no] = content
         return res

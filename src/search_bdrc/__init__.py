@@ -1,5 +1,4 @@
-import json
-import time
+import re
 from multiprocessing import Pool
 from pathlib import Path
 
@@ -11,6 +10,9 @@ text = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན
 
 
 class Scraper:
+    def __init__(self):
+        self.instance_id_regex = r"<a\shref=\"/show/bdr:([A-Z0-9_]+)\?"
+
     @staticmethod
     def scrape(args):
         input, page_no = args
@@ -34,3 +36,9 @@ class Scraper:
             ):
                 res[page_no] = content
         return res
+
+    def extract_instance_ids(self, text: str) -> list[str]:
+        ids = re.findall(self.instance_id_regex, text)
+        # Remove duplicate
+        ids = list(set(ids))
+        return ids

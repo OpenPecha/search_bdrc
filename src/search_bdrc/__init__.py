@@ -111,13 +111,25 @@ class BdrcScraper:
     def get_work_of_instance(self, instance_id: str):
         metadata = self.get_instance_metadata(instance_id)
 
+        works = []
         for subj, pred, obj in metadata:
-            if str(pred) == "http://purl.bdrc.io/ontology/core/workHasInstance":
-                pass
+            # res.append({
+            #     "subj": str(subj),
+            #     "pred": str(pred),
+            #     "obj": str(obj)
+            # })
+            if str(pred) == "http://purl.bdrc.io/ontology/core/instanceOf":
+                work_link = str(obj)
+                work_id = work_link.split("/")[-1]
+                works.append(work_id)
+
+        # remove duplicates
+        works = list(set(works))
+        return works
 
 
 if __name__ == "__main__":
-    from search_bdrc.utils import write_json
+    from search_bdrc.utils import read_json, write_json
 
     scraper = BdrcScraper()
 
@@ -126,6 +138,10 @@ if __name__ == "__main__":
     # ids = scraper.get_related_instance_ids(input, no_of_page)
     # write_json(ids, "res.json")
 
-    instance_id = "IE0OPIFAE16D6A"
-    res = scraper.get_work_of_instance(instance_id)
-    write_json(res, "data.json")
+    instance_ids = read_json("res.json")
+
+    works = []
+    for instance_id in instance_ids:
+        instance_works = scraper.get_work_of_instance(instance_id)
+        works.extend(instance_works)
+    write_json(works, "works.json")

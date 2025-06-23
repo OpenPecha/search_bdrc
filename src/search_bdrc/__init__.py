@@ -110,14 +110,11 @@ class BdrcScraper:
 
     def get_work_of_instance(self, instance_id: str):
         metadata = self.get_instance_metadata(instance_id)
+        if not metadata:
+            return []
 
         works = []
         for subj, pred, obj in metadata:
-            # res.append({
-            #     "subj": str(subj),
-            #     "pred": str(pred),
-            #     "obj": str(obj)
-            # })
             if str(pred) == "http://purl.bdrc.io/ontology/core/instanceOf":
                 work_link = str(obj)
                 work_id = work_link.split("/")[-1]
@@ -141,7 +138,8 @@ if __name__ == "__main__":
     instance_ids = read_json("res.json")
 
     works = []
-    for instance_id in instance_ids:
+    for i, instance_id in enumerate(instance_ids):
+        print(f"Getting work for instance number {i}")
         instance_works = scraper.get_work_of_instance(instance_id)
         works.extend(instance_works)
     write_json(works, "works.json")

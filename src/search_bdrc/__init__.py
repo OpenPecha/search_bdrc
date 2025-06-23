@@ -92,6 +92,25 @@ class BdrcScraper:
         logger.info(f"Total unique instance IDs found: {len(ids)}")
         return ids
 
+    def get_related_instance_ids_from_work(self, work_id: str) -> list[str]:
+        metadata = self.get_instance_metadata(work_id)
+
+        if not metadata:
+            return []
+
+        instance_ids = []
+        for subj, pred, obj in metadata:
+            if str(pred) == "http://purl.bdrc.io/ontology/core/workHasInstance":
+                instance_link = str(obj)
+                instance_id = instance_link.split("/")[-1]
+                instance_ids.append(instance_id)
+
+        # remove duplicates
+        instance_ids = list(set(instance_ids))
+        return instance_ids
+
+        pass
+
     @staticmethod
     def get_instance_metadata(instance_id: str):
         url = f"https://purl.bdrc.io/resource/{instance_id}.ttl"  # noqa
@@ -130,16 +149,11 @@ if __name__ == "__main__":
 
     scraper = BdrcScraper()
 
-    # input = "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།"
-    # no_of_page = 44
-    # ids = scraper.get_related_instance_ids(input, no_of_page)
-    # write_json(ids, "res.json")
+    work_ids = read_json("works.json")
 
-    instance_ids = read_json("res.json")
+    instance_ids = []
+    for work_id in tqdm(work_ids, desc="Getting instance ids from work id"):
+        work_instance_ids = scraper.get_related_instance_ids_from_work(work_id)
+        instance_ids.extend(work_instance_ids)
 
-    works = []
-    for i, instance_id in enumerate(instance_ids):
-        print(f"Getting work for instance number {i}")
-        instance_works = scraper.get_work_of_instance(instance_id)
-        works.extend(instance_works)
-    write_json(works, "works.json")
+    write_json(instance_ids, "instance_ids.json")

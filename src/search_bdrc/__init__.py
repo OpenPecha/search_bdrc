@@ -109,23 +109,39 @@ class BdrcScraper:
         instance_ids = list(set(instance_ids))
         return instance_ids
 
-        pass
-
     @staticmethod
-    def get_instance_metadata(instance_id: str):
-        url = f"https://purl.bdrc.io/resource/{instance_id}.ttl"  # noqa
-        headers = {"Accept": "text/turtle"}  # Requesting Turtle format
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            data = response.text
-            g = Graph()
-            g.parse(data=data, format="turtle")
-
-            return g
+    def get_instance_metadata(instance_id: str, json_format: bool = False):
+        if json_format:
+            url = f"https://purl.bdrc.io/resource/{instance_id}.jsonld"  # noqa
+            headers = {"Accept": "application/ld+json"}
+            response = requests.get(url, headers=headers)
+            if response.status_code == 200:
+                try:
+                    return response.json()
+                except Exception as e:
+                    logger.error(
+                        f"Failed to parse JSON for instance {instance_id}: {e}"
+                    )
+                    return None
+            else:
+                logger.error(
+                    f"Failed to retrieve JSON metadata from instance {instance_id}: {response.status_code}"
+                )
+                return None
         else:
-            logger.error(
-                f"Failed to retrieve metadata from instance {instance_id}: {response.status_code}"
-            )
+            url = f"https://purl.bdrc.io/resource/{instance_id}.ttl"  # noqa
+            headers = {"Accept": "text/turtle"}  # Requesting Turtle format
+            response = requests.get(url, headers=headers)
+            if response.status_code == 200:
+                data = response.text
+                g = Graph()
+                g.parse(data=data, format="turtle")
+                return g
+            else:
+                logger.error(
+                    f"Failed to retrieve metadata from instance {instance_id}: {response.status_code}"
+                )
+                return None
 
     def get_work_of_instance(self, instance_id: str):
         metadata = self.get_instance_metadata(instance_id)
@@ -142,18 +158,3 @@ class BdrcScraper:
         # remove duplicates
         works = list(set(works))
         return works
-
-
-if __name__ == "__main__":
-    from search_bdrc.utils import read_json, write_json
-
-    scraper = BdrcScraper()
-
-    work_ids = read_json("works.json")
-
-    instance_ids = []
-    for work_id in tqdm(work_ids, desc="Getting instance ids from work id"):
-        work_instance_ids = scraper.get_related_instance_ids_from_work(work_id)
-        instance_ids.extend(work_instance_ids)
-
-    write_json(instance_ids, "instance_ids.json")

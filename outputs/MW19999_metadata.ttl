@@ -1,0 +1,49 @@
+@prefix bdo: <http://purl.bdrc.io/ontology/core/> .
+@prefix bdr: <http://purl.bdrc.io/resource/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix edtf: <http://id.loc.gov/datatypes/edtf/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tmp: <http://purl.bdrc.io/ontology/tmp/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bdr:MW19999 a bdo:Instance ;
+    bf:identifiedBy bdr:ID995D1B4F3A353C9C,
+        bdr:IDA84AA21571CAF2B2,
+        bdr:IDE92BEA5588956EE3 ;
+    bdo:authorshipStatement "krung go bod brgyud mtho rim nang bstan slob gling brgyud nang bstan zhib 'jug khang gis dag sgrig byas/"@bo-x-ewts ;
+    bdo:contentMethod bdr:ContentMethod_ComputerInput ;
+    bdo:copyrightStatus bdr:CopyrightClaimed ;
+    bdo:extentStatement "6 v." ;
+    bdo:hasOutline bdr:O2DB80610 ;
+    bdo:hasPart bdr:MW19999_1385CD,
+        bdr:MW19999_44A3BC,
+        bdr:MW19999_589C8A,
+        bdr:MW19999_C641C3,
+        bdr:MW19999_C827B2,
+        bdr:MW19999_E321C0 ;
+    bdo:hasTitle bdr:TT5798E88B95CC9592,
+        bdr:TT82C32EAC8ADC556E ;
+    bdo:instanceEvent bdr:EV205AFD33A770C5ED ;
+    bdo:instanceHasReproduction bdr:IE0OPI0F15120B,
+        bdr:W19999 ;
+    bdo:instanceOf bdr:WA19999 ;
+    bdo:numberOfVolumes 6 ;
+    bdo:printMethod bdr:PrintMethod_Modern ;
+    bdo:publisherLocation "zi ling /"@bo-x-ewts ;
+    bdo:publisherName "mtsho sngon mi rigs dpe skrun khang /"@bo-x-ewts ;
+    bdo:script bdr:ScriptTibt ;
+    tmp:thumbnailIIIFService <https://iiif.bdrc.io/bdr:I1PD86093::I1PD860930003.jpg> ;
+    skos:altLabel "Dge-lugs-pa'i chos spyod phyogs bsgrigs."@en-x-mixed ;
+    skos:prefLabel "dge lugs pa'i chos spyod phyogs bsgrigs/"@bo-x-ewts .
+
+bdr:EV205AFD33A770C5ED a bdo:PublishedEvent ;
+    bdo:eventWhen "1995"^^edtf:EDTF ;
+    bdo:onYear "1995"^^xsd:gYear .
+
+bdr:TT5798E88B95CC9592 a bdo:CoverTitle ;
+    rdfs:label "Dge-lugs-pa'i chos spyod phyogs bsgrigs."@en-x-mixed .
+
+bdr:TT82C32EAC8ADC556E a bdo:Title ;
+    rdfs:label "dge lugs pa'i chos spyod phyogs bsgrigs/"@bo-x-ewts .
+

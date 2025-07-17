@@ -1,0 +1,52 @@
+@prefix bdo: <http://purl.bdrc.io/ontology/core/> .
+@prefix bdr: <http://purl.bdrc.io/resource/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix edtf: <http://id.loc.gov/datatypes/edtf/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tmp: <http://purl.bdrc.io/ontology/tmp/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bdr:MW21752 a bdo:Instance ;
+    bf:identifiedBy bdr:ID036DD1A4E1AB9D87,
+        bdr:IDMW21752_42KT6BHLR2AY,
+        bdr:IDMW21752_SVNDT86SNHP4 ;
+    bdo:authorshipStatement "rdo rje rgyal gyis brtsams/"@bo-x-ewts ;
+    bdo:binding bdr:Binding_Codex_Perfect ;
+    bdo:copyrightStatus bdr:CopyrightInCopyright ;
+    bdo:editionStatement "par gzhi dang po/"@bo-x-ewts ;
+    bdo:extentStatement "3, 296 p." ;
+    bdo:hasOutline bdr:O2DB95714 ;
+    bdo:hasPart bdr:MW21752_0E64C6,
+        bdr:MW21752_418319,
+        bdr:MW21752_592283,
+        bdr:MW21752_6F35B8,
+        bdr:MW21752_EAA383 ;
+    bdo:hasTitle bdr:TT27507BDCFFDDC6C4,
+        bdr:TT860ED754B983B1AC,
+        bdr:TTEF66DCF68F87DA4C ;
+    bdo:instanceEvent bdr:EV176733F06913E55E ;
+    bdo:instanceHasReproduction bdr:IE0OPI2F0F3CC4,
+        bdr:W21752 ;
+    bdo:instanceOf bdr:WA21752 ;
+    bdo:numberOfVolumes 1 ;
+    bdo:publisherLocation "lan kru'u/"@bo-x-ewts ;
+    bdo:publisherName "kan su'u mi rigs dpe skrun khang /"@bo-x-ewts ;
+    bdo:script bdr:ScriptTibt ;
+    tmp:thumbnailIIIFService <https://iiif.bdrc.io/bdr:I1PD103572::I1PD1035720003.jpg> ;
+    skos:altLabel "biography of ge dun qu pel"@en ;
+    skos:prefLabel "'dzam gling rig pa'i dpa' bo rdo brag dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"@bo-x-ewts .
+
+bdr:EV176733F06913E55E a bdo:PublishedEvent ;
+    bdo:eventWhen "1997"^^edtf:EDTF ;
+    bdo:onYear "1997"^^xsd:gYear .
+
+bdr:TT27507BDCFFDDC6C4 a bdo:Title ;
+    rdfs:label "'dzam gling rig pa'i dpa' bo rdo brag dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"@bo-x-ewts .
+
+bdr:TT860ED754B983B1AC a bdo:CoverTitle ;
+    rdfs:label "dge 'dun chos 'phel/"@bo-x-ewts .
+
+bdr:TTEF66DCF68F87DA4C a bdo:OtherTitle ;
+    rdfs:label "biography of ge dun qu pel"@en .
+

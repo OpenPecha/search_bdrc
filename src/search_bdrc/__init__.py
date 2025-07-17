@@ -3,15 +3,19 @@ This module provides a BdrcScraper class for extracting instance IDs from the BD
 It uses Playwright for web scraping and multiprocessing for parallel page retrieval.
 """
 import re
-from multiprocessing import Pool
-
+import json
 import requests
+from typing import List, Optional
+from rdflib import ConjunctiveGraph, Graph, Namespace, URIRef, RDF, RDFS
+from multiprocessing import Pool
+from concurrent.futures import ThreadPoolExecutor
 from playwright.sync_api import sync_playwright
-from rdflib import Graph
 from tqdm import tqdm
-
 from search_bdrc.config import get_logger
+import logging
+from pathlib import Path
 
+logger = logging.getLogger(__name__)
 logger = get_logger(__name__)
 
 
@@ -129,7 +133,7 @@ class BdrcScraper:
                 )
                 return None
         else:
-            url = f"https://purl.bdrc.io/resource/{instance_id}.ttl"  # noqa
+            url = f"https://ldspdi-dev.bdrc.io/resource/{instance_id}.ttl"  # noqa
             headers = {"Accept": "text/turtle"}  # Requesting Turtle format
             response = requests.get(url, headers=headers)
             if response.status_code == 200:
@@ -158,3 +162,182 @@ class BdrcScraper:
         # remove duplicates
         works = list(set(works))
         return works
+
+
+    def get_outline_of_instance(self, instance_id: str) -> list[str]:
+        """Get outline IDs for a given instance.
+        
+        Args:
+            instance_id: The ID of the instance (e.g. MW19999)
+            
+        Returns:
+            List of outline IDs associated with the instance
+        """
+        metadata = self.get_instance_metadata(instance_id)
+        if not metadata:
+            print(f"No metadata found for instance {instance_id}")
+            return []
+
+        # Save metadata to file
+        output_dir = Path("outputs")
+        output_dir.mkdir(exist_ok=True)
+        meta_file = output_dir / f"{instance_id}_metadata.ttl"
+        meta_file.write_text(metadata.serialize(format='turtle'))
+        print(f"Metadata saved to {meta_file}")
+
+        # Get outlines using BDO namespace
+        BDO = Namespace("http://purl.bdrc.io/ontology/core/")
+        outlines = []
+
+        # Look for hasOutline predicate
+        for _, _, obj in metadata.triples((None, BDO.hasOutline, None)):
+            outline_id = str(obj).split("/")[-1]
+            outlines.append(outline_id)
+            print(f"Found outline: {outline_id}")
+
+        if not outlines:
+            print(f"No outlines found for instance {instance_id}")
+            return []
+
+        # Remove duplicates while preserving order
+        return list(dict.fromkeys(outlines))
+
+    def get_outline_metadata(self, outline_id: str):
+        metadata = self.get_instance_metadata(outline_id)
+        if not metadata:
+            return None
+        
+        return metadata
+    
+    def get_outline_graph(self, outline_id: str):
+        url = f"https://purl.bdrc.io/graph/{outline_id}.trig"  # noqa
+        response = requests.get(url, headers={"Accept": "text/trig"})
+        if response.status_code != 200:
+            logger.error(f"Error fetching {url}: {response.status_code}")
+            return None
+        
+        # Create and configure graph
+        g = ConjunctiveGraph()
+        g.bind('bdr', 'http://purl.bdrc.io/resource/')
+        g.bind('bdo', 'http://purl.bdrc.io/ontology/core/')
+        g.bind('skos', 'http://www.w3.org/2004/02/skos/core#')
+        
+        try:
+            g.parse(data=response.text, format="trig")
+            return g
+        except Exception as e:
+            logger.warning(f"Failed to parse as trig: {e}, trying turtle format")
+            g = Graph()
+            g.parse(data=response.text, format="turtle")
+            return g
+
+    def get_page_title(self, graph: Graph) -> Optional[str]:
+        BDO = Namespace("http://purl.bdrc.io/ontology/core/")
+        RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+        
+        # Find subjects that are of type TitlePageTitle
+        for subject in graph.subjects(RDF.type, BDO.TitlePageTitle):
+            # Get their rdfs:label
+            for label in graph.objects(subject, RDFS.label):
+                return str(label)
+        return None
+
+    def get_ordered_text_parts(self, graph: Graph) -> list[dict]:
+        """
+        Get all text parts from the graph ordered by their tree index.
+        
+        Args:
+            graph: RDF graph containing the outline structure
+            
+        Returns:
+            List of dictionaries containing text part information including:
+            - id: text part ID
+            - label: skos:prefLabel
+            - titles: list of title objects with type and label
+            - colophon: text colophon if available
+            - location: detailed content location info
+            - part_index: numerical index
+            - part_tree_index: hierarchical index
+            - instance_of: work ID this is an instance of
+            - part_of: parent section ID
+        """
+        BDO = Namespace("http://purl.bdrc.io/ontology/core/")
+        BDR = Namespace("http://purl.bdrc.io/resource/")
+        SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+        RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+        RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+        
+        
+        
+        def process_part(subject):
+            """Process a single part and extract its information"""
+            part_info = {
+                'id': str(subject).split('/')[-1],
+                'label': None,
+                'location': None,
+                'titles': [],
+                'colophon': None,
+                'part_index': None,
+                'part_tree_index': None,
+                'instance_of': None,
+                'part_of': None,
+                'root_instance': None
+            }
+            
+            # Get skos:prefLabel
+            for label in graph.objects(subject, SKOS.prefLabel):
+                part_info['label'] = str(label)
+            
+            # Get content location
+            for _, _, loc_node in graph.triples((subject, BDO.contentLocation, None)):
+                location_info = {'id': str(loc_node).split('/')[-1]}
+                for pred, obj in graph.predicate_objects(loc_node):
+                    pred_name = str(pred).split('/')[-1]
+                    if 'contentLocation' in pred_name and pred_name != 'contentLocation':
+                        key = pred_name.replace('contentLocation', '').lower()
+                        try:
+                            location_info[key] = int(obj)
+                        except ValueError:
+                            location_info[key] = str(obj).split('/')[-1] if '/' in str(obj) else str(obj).split('#')[-1]
+                part_info['location'] = location_info
+            
+            # Get titles
+            for title_node in graph.objects(subject, BDO.hasTitle):
+                title_info = {
+                    'id': str(title_node).split('/')[-1],
+                    'type': None,
+                    'label': None
+                }
+                # Get title type
+                for title_type in graph.objects(title_node, RDF.type):
+                    title_info['type'] = str(title_type).split('/')[-1]
+                # Get title label
+                for label in graph.objects(title_node, SKOS.prefLabel):
+                    title_info['label'] = str(label)
+                if not title_info['label']:
+                    for label in graph.objects(title_node, RDFS.label):
+                        title_info['label'] = str(label)
+                part_info['titles'].append(title_info)
+            
+            # Get all other properties
+            part_info['colophon'] = next((str(col) for col in graph.objects(subject, BDO.colophon)), None)
+            part_info['part_index'] = next((int(idx) for idx in graph.objects(subject, BDO.partIndex)), None)
+            part_info['part_tree_index'] = next((str(idx) for idx in graph.objects(subject, BDO.partTreeIndex)), None)
+            part_info['instance_of'] = next((str(work).split('/')[-1] for work in graph.objects(subject, BDO.instanceOf)), None)
+            part_info['part_of'] = next((str(parent).split('/')[-1] for parent in graph.objects(subject, BDO.partOf)), None)
+            part_info['root_instance'] = next((str(root).split('/')[-1] for root in graph.objects(subject, BDO.inRootInstance)), None)
+            
+            return part_info
+
+        # Collect all parts
+        text_parts = []
+        
+        # Get both text parts and table of contents parts
+        for part_type in [BDR.PartTypeText, BDR.PartTypeTableOfContent, BDR.PartTypeVolume, BDR.PartTypeSection, BDR.PartTypeChapter]:
+            for s, _, _ in graph.triples((None, BDO.partType, part_type)):
+                text_parts.append(process_part(s))
+
+        # Sort by part_tree_index
+        return sorted(text_parts, key=lambda x: (x['part_tree_index'] or ''))
+
+

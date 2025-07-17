@@ -1,0 +1,336 @@
+{
+    "text": {
+        "title": "'dzam gling rig pa'i dpa' bo rdo brag dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/",
+        "content": "_____________________________________________________________________________________________________",
+        "language": "bo",
+        "source": "Buddhist Digital Resource Center"
+    },
+    "annotations": [
+        {
+            "annotation_type": "header",
+            "start_position": 1,
+            "end_position": 11,
+            "label": "section_header",
+            "name": "hor khang bsod nams dpal 'bar gyis bris pa'i deb 'di'i mgo brjod/",
+            "meta": {
+                "id": "MW21752_6F35B8",
+                "location": {
+                    "id": "CLA3C44C931EAE9875",
+                    "endpage": 7,
+                    "instance": "W21752",
+                    "page": 7
+                },
+                "titles": [
+                    {
+                        "id": "TTD17FD80FCF3E7302",
+                        "type": "Title",
+                        "label": "hor khang bsod nams dpal 'bar gyis bris pa'i deb 'di'i mgo brjod/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 1,
+                "part_tree_index": "1",
+                "instance_of": "WA0XL6F35B8417A50",
+                "part_of": "MW21752",
+                "root_instance": "MW21752",
+                "level": 1,
+                "parent": null
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 11,
+            "end_position": 21,
+            "label": "section_header",
+            "name": "dkar chag",
+            "meta": {
+                "id": "MW21752_0E64C6",
+                "location": {
+                    "id": "CLDD5D083CE9833180",
+                    "endpage": 9,
+                    "instance": "W21752",
+                    "page": 9
+                },
+                "titles": [
+                    {
+                        "id": "TT2F37189F98A19EB1",
+                        "type": "Title",
+                        "label": "dkar chag"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 2,
+                "part_tree_index": "2",
+                "instance_of": null,
+                "part_of": "MW21752",
+                "root_instance": "MW21752",
+                "level": 1,
+                "parent": null
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 21,
+            "end_position": 31,
+            "label": "section_header",
+            "name": "gleng gzhi/",
+            "meta": {
+                "id": "MW21752_592283",
+                "location": {
+                    "id": "CLD32C377A8E7B7B4D",
+                    "endpage": 14,
+                    "instance": "W21752",
+                    "page": 11
+                },
+                "titles": [
+                    {
+                        "id": "TT7CC8CD187E6DF894",
+                        "type": "Title",
+                        "label": "gleng gzhi/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 3,
+                "part_tree_index": "3",
+                "instance_of": null,
+                "part_of": "MW21752",
+                "root_instance": "MW21752",
+                "level": 1,
+                "parent": null
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 31,
+            "end_position": 91,
+            "label": "section_header",
+            "name": "dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/",
+            "meta": {
+                "id": "MW21752_418319",
+                "location": {
+                    "id": "CL33C83843E24B47B5",
+                    "endpage": 166,
+                    "instance": "W21752",
+                    "page": 15
+                },
+                "titles": [
+                    {
+                        "id": "TT3B6FB7786F62284A",
+                        "type": "TitlePageTitle",
+                        "label": "'dzam gling rig pa'i dpa' bo rdo brag dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"
+                    },
+                    {
+                        "id": "TT9294C162ED3E656E",
+                        "type": "Title",
+                        "label": "dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 4,
+                "part_tree_index": "4",
+                "instance_of": "WA0XL418319AB3DB0",
+                "part_of": "MW21752",
+                "root_instance": "MW21752",
+                "level": 1,
+                "parent": null,
+                "relationship": "parent"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 41,
+            "end_position": 51,
+            "label": "section_header",
+            "name": "gang du sku bltams pa'i yul ngos bzung ba/",
+            "meta": {
+                "id": "MW21752_22B553",
+                "location": {
+                    "id": "CL58DDAA8D571FD19B",
+                    "endpage": 17,
+                    "instance": "W21752",
+                    "page": 16
+                },
+                "titles": [
+                    {
+                        "id": "TT1ECC46854DF003C3",
+                        "type": "Title",
+                        "label": "gang du sku bltams pa'i yul ngos bzung ba/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 1,
+                "part_tree_index": "4.1",
+                "instance_of": null,
+                "part_of": "MW21752_418319",
+                "root_instance": "MW21752",
+                "level": 2,
+                "parent": "4",
+                "parent_id": 3,
+                "relationship": "child"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 51,
+            "end_position": 61,
+            "label": "section_header",
+            "name": "yab dang yum gyi mtshan brjod pa/",
+            "meta": {
+                "id": "MW21752_B05594",
+                "location": {
+                    "id": "CL53544BCE0023AF78",
+                    "endpage": 17,
+                    "instance": "W21752",
+                    "page": 17
+                },
+                "titles": [
+                    {
+                        "id": "TTF5C8B0908FD0DEC5",
+                        "type": "Title",
+                        "label": "yab dang yum gyi mtshan brjod pa/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 2,
+                "part_tree_index": "4.2",
+                "instance_of": null,
+                "part_of": "MW21752_418319",
+                "root_instance": "MW21752",
+                "level": 2,
+                "parent": "4",
+                "parent_id": 3,
+                "relationship": "child"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 61,
+            "end_position": 71,
+            "label": "section_header",
+            "name": "ji ltar lhums su zhugs pa'i tshul brjod pa/",
+            "meta": {
+                "id": "MW21752_C9D9AA",
+                "location": {
+                    "id": "CL67AFC52E93DABA41",
+                    "endpage": 19,
+                    "instance": "W21752",
+                    "page": 17
+                },
+                "titles": [
+                    {
+                        "id": "TTE86FD03BE41CD42A",
+                        "type": "Title",
+                        "label": "ji ltar lhums su zhugs pa'i tshul brjod pa/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 3,
+                "part_tree_index": "4.3",
+                "instance_of": null,
+                "part_of": "MW21752_418319",
+                "root_instance": "MW21752",
+                "level": 2,
+                "parent": "4",
+                "parent_id": 3,
+                "relationship": "child"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 71,
+            "end_position": 81,
+            "label": "section_header",
+            "name": "sku bltams pa'i lo tshigs brjod pa/",
+            "meta": {
+                "id": "MW21752_6503D0",
+                "location": {
+                    "id": "CL650C100BE111E24C",
+                    "endpage": 21,
+                    "instance": "W21752",
+                    "page": 19
+                },
+                "titles": [
+                    {
+                        "id": "TTD06A4DE7B56F7EE6",
+                        "type": "Title",
+                        "label": "sku bltams pa'i lo tshigs brjod pa/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 4,
+                "part_tree_index": "4.4",
+                "instance_of": null,
+                "part_of": "MW21752_418319",
+                "root_instance": "MW21752",
+                "level": 2,
+                "parent": "4",
+                "parent_id": 3,
+                "relationship": "child"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 81,
+            "end_position": 91,
+            "label": "section_header",
+            "name": "thog mar gsan bsam mdzad pa'i gnas bstan pa dang tha mar phyogs med rgyal khams kun la 'grims tshul/",
+            "meta": {
+                "id": "MW21752_571126",
+                "location": {
+                    "id": "CL8577ED2654E9AACD",
+                    "endpage": 166,
+                    "instance": "W21752",
+                    "page": 21
+                },
+                "titles": [
+                    {
+                        "id": "TT3AA19DCC9362A92F",
+                        "type": "Title",
+                        "label": "thog mar gsan bsam mdzad pa'i gnas bstan pa dang tha mar phyogs med rgyal khams kun la 'grims tshul/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 5,
+                "part_tree_index": "4.5",
+                "instance_of": null,
+                "part_of": "MW21752_418319",
+                "root_instance": "MW21752",
+                "level": 2,
+                "parent": "4",
+                "parent_id": 3,
+                "relationship": "child"
+            }
+        },
+        {
+            "annotation_type": "header",
+            "start_position": 91,
+            "end_position": 101,
+            "label": "section_header",
+            "name": "bod chen po'i srid lugs dang 'brel ba'i rgyal rabs deb ther dkar po'i gzhung gi dka' gnad zin bris pad dkar chun 'phyangs/",
+            "meta": {
+                "id": "MW21752_EAA383",
+                "location": {
+                    "id": "CLC37E4A96F00A4105",
+                    "endpage": 312,
+                    "instance": "W21752",
+                    "page": 167
+                },
+                "titles": [
+                    {
+                        "id": "TT106B15CE13365DC7",
+                        "type": "Title",
+                        "label": "bod chen po'i srid lugs dang 'brel ba'i rgyal rabs deb ther dkar po'i gzhung gi dka' gnad zin bris pad dkar chun 'phyangs/"
+                    }
+                ],
+                "colophon": null,
+                "part_index": 5,
+                "part_tree_index": "5",
+                "instance_of": "WA0XLEAA383769CFA",
+                "part_of": "MW21752",
+                "root_instance": "MW21752",
+                "level": 1,
+                "parent": null
+            }
+        }
+    ]
+}

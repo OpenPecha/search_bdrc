@@ -1,0 +1,86 @@
+@prefix bdo: <http://purl.bdrc.io/ontology/core/> .
+@prefix bdr: <http://purl.bdrc.io/resource/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix edtf: <http://id.loc.gov/datatypes/edtf/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tmp: <http://purl.bdrc.io/ontology/tmp/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bdr:MW23703 a bdo:Instance ;
+    bf:identifiedBy bdr:IDC4F1EA7CC0E3FA2C,
+        bdr:IDE83B4631405043DE ;
+    bdo:biblioNote "reproduced from the clear prints from the 18th century sde-dge blocks/"@bo-x-ewts ;
+    bdo:copyrightStatus bdr:CopyrightUndetermined ;
+    bdo:creator bdr:CR629789678CF1D113 ;
+    bdo:extentStatement "213 v." ;
+    bdo:hasOutline bdr:O23703 ;
+    bdo:hasPart bdr:MW23703_S0001,
+        bdr:MW23703_S0002,
+        bdr:MW23703_S0003,
+        bdr:MW23703_S0004,
+        bdr:MW23703_S0005,
+        bdr:MW23703_S0006,
+        bdr:MW23703_S0007,
+        bdr:MW23703_S0008,
+        bdr:MW23703_S0009,
+        bdr:MW23703_S0010,
+        bdr:MW23703_S0011,
+        bdr:MW23703_S0012,
+        bdr:MW23703_S0013,
+        bdr:MW23703_S0014,
+        bdr:MW23703_S0015 ;
+    bdo:hasSourcePrintery bdr:G1657 ;
+    bdo:hasTitle bdr:TT432601DE8E2599BD,
+        bdr:TT88665BF4865FD17C,
+        bdr:TTC699C61C59447B1F,
+        bdr:TTD32873BA46751EC6 ;
+    bdo:instanceEvent bdr:EVCA42497169A97D5A ;
+    bdo:instanceHasReproduction bdr:IE23703,
+        bdr:W23703 ;
+    bdo:instanceOf bdr:WA0BC002 ;
+    bdo:material bdr:MaterialPaper ;
+    bdo:note bdr:NT6AD51200A8235398,
+        bdr:NTFC356159460AB8DB ;
+    bdo:numberOfVolumes 213 ;
+    bdo:printMethod bdr:PrintMethod_Relief_WoodBlock ;
+    bdo:publisherLocation "delhi"@en ;
+    bdo:publisherName "delhi karmapae choedhey, gyalwae sungrab partun khang"@en ;
+    bdo:script bdr:ScriptDbuCan ;
+    bdo:volumesNote "v. 1-215 [i.e. 213]" ;
+    tmp:thumbnailIIIFService <https://iiif.bdrc.io/bdr:I1317::13170003.tif> ;
+    rdfs:seeAlso <http://purl.rkts.eu/resource/WED> ;
+    skos:altLabel "Derge Tanjur"@en-x-mixed,
+        "Derge Tengyur"@en-x-mixed,
+        "丹珠尔(德格版)"@zh-Hans ;
+    skos:prefLabel "bstan 'gyur/ (sde dge/)"@bo-x-ewts .
+
+bdr:CR629789678CF1D113 a bdo:AgentAsCreator ;
+    bdo:agent bdr:P801 ;
+    bdo:role bdr:R0ER0015 .
+
+bdr:EVCA42497169A97D5A a bdo:PublishedEvent ;
+    bdo:eventWhen "1982/1985"^^edtf:EDTF ;
+    bdo:notAfter "1985"^^xsd:gYear ;
+    bdo:notBefore "1982"^^xsd:gYear .
+
+bdr:NT6AD51200A8235398 a bdo:Note ;
+    bdo:noteText "tbrc holds scans, pdfs and tiff files, tbrc volume numbers 1317-1531"@en .
+
+bdr:NTFC356159460AB8DB a bdo:Note ;
+    bdo:contentLocationStatement "v. 1 p. 28" ;
+    bdo:noteSource bdr:MW1PD76592 ;
+    bdo:noteText "སྡེ་དགེའི་བསྟན་འགྱུར་ནི། ངོར་ཆེན་ཀུན་དགའ་བཟང་པོའི་ཆོས་ཀྱི་ཁྲི་ཆེན་པོ་ལ་མངའ་གསོལ་བའི་གདན་རབས་སུམ་ཅུ་པ་འཇམ་དབྱངས་བཀྲ་ཤིས་ལྷུན་གྲུབ་གྲགས་པའི་རྒྱལ་མཚན་དཔལ་བཟང་པོའི་བཀའ་ལུང་གིས་དགོངས་འགྲེལ་བསྟན་བཅོས་འགྱུར་རོ་འཚལ་པར་དུ་བསྒྲུབ་པ་བསྐུལ་བ་ལྟར། བོད་རབ་བྱུང་བཅུ་གཉིས་པའི་མེ་མོ་སྦྲུལ་ ༼སྤྱི་ལོ ༡༧༣༧༽ གྱི་ལོར་ཁམས་སྡེ་དགེའི་རྒྱལ་རབས་ཞེ་གཉིས་པ་ཆོས་རྒྱལ་བསྟན་པ་ཚེ་རིང་གིས་སྦྱིན་བདག་བགྱིས་ཏེ། པར་དུ་བརྐོ་བའི་དབུ་བརྩམས། གླེགས་བམ་བདུན་ཙམ་ཚར་མཚམས་ཆོས་རྒྱལ་དགོངས་པ་རྫོགས་ཀྱང་། དེའི་སྲས་སྡོམ་བརྩོན་རྒྱལ་པོའི་ཚུལ་ཅན་བླ་མ་ཀུན་དགའ་འཕྲིན་ལས་རྒྱ་མཚོ་མཆོག་གིས་པར་རྐོ་བའི་ལས་མཇུག་བསྐྱངས་ནས་ཤིང་བྱི་ ༼སྤྱི ༡༧༤༤༽ ལོ་སྟེ་བགྲང་བྱ་བདུན་གྱི་རིང་ལ་ཞུས་དག་དང་བཅས་གྲུབ་པར་མཛད་ནས་སྡེ་དགེའི་པར་ཁང་ཆོས་མཛོད་ཆེན་མོར་བཞུགས་པ་ལ་སྡེ་དགེ་བསྟན་འགྱུར་ཞེས་མཚན་དུ་གསོལ༎"@bo .
+
+bdr:TT432601DE8E2599BD a bdo:OtherTitle ;
+    rdfs:label "sde dge‘i bstan 'gyur/"@bo-x-ewts .
+
+bdr:TT88665BF4865FD17C a bdo:OtherTitle ;
+    rdfs:label "sde dge bstan 'gyur/"@bo-x-ewts .
+
+bdr:TTC699C61C59447B1F a bdo:CoverTitle ;
+    rdfs:label "Derge Tanjur"@en-x-mixed .
+
+bdr:TTD32873BA46751EC6 a bdo:OtherTitle ;
+    rdfs:label "bstan 'gyur/ (sde dge/)"@bo-x-ewts .
+

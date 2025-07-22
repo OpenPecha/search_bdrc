@@ -1,0 +1,326 @@
+@prefix :      <http://purl.bdrc.io/ontology/core/> .
+@prefix adm:   <http://purl.bdrc.io/ontology/admin/> .
+@prefix adr:   <http://purl.bdrc.io/resource-nc/auth/> .
+@prefix as:    <http://www.w3.org/ns/activitystreams#> .
+@prefix aut:   <http://purl.bdrc.io/ontology/ext/auth/> .
+@prefix bda:   <http://purl.bdrc.io/admindata/> .
+@prefix bdac:  <http://purl.bdrc.io/anncollection/> .
+@prefix bdan:  <http://purl.bdrc.io/annotation/> .
+@prefix bdg:   <http://purl.bdrc.io/graph/> .
+@prefix bdgu:  <http://purl.bdrc.io/graph-nc/user/> .
+@prefix bdgup: <http://purl.bdrc.io/graph-nc/user-private/> .
+@prefix bdo:   <http://purl.bdrc.io/ontology/core/> .
+@prefix bdou:  <http://purl.bdrc.io/ontology/ext/user/> .
+@prefix bdr:   <http://purl.bdrc.io/resource/> .
+@prefix bds:   <http://purl.bdrc.io/ontology/shapes/core/> .
+@prefix bdu:   <http://purl.bdrc.io/resource-nc/user/> .
+@prefix bf:    <http://id.loc.gov/ontologies/bibframe/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dila:  <http://purl.dila.edu.tw/resource/> .
+@prefix eftr:  <http://purl.84000.co/resource/core/> .
+@prefix f:     <java:io.bdrc.libraries.sparql.functions.> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix iiif2: <http://iiif.io/api/presentation/2#> .
+@prefix iiif3: <http://iiif.io/api/presentation/3#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
+@prefix mbbt:  <http://mbingenheimer.net/tools/bibls/> .
+@prefix oa:    <http://www.w3.org/ns/oa#> .
+@prefix ola:   <https://openlibrary.org/authors/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsh:   <http://purl.bdrc.io/shacl/core/shape/> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix srcd:  <https://sakyaresearch.org/deities/> .
+@prefix srcl:  <https://sakyaresearch.org/literary_forms/> .
+@prefix srcpe: <https://sakyaresearch.org/persons/> .
+@prefix srcpl: <https://sakyaresearch.org/places/> .
+@prefix srcs:  <https://sakyaresearch.org/sources/> .
+@prefix srct:  <https://sakyaresearch.org/topics/> .
+@prefix tbr:   <http://purl.bdrc.io/ontology/toberemoved/> .
+@prefix text:  <http://jena.apache.org/text#> .
+@prefix tmp:   <http://purl.bdrc.io/ontology/tmp/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix viaf:  <http://viaf.org/viaf/> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+bdg:O2DB95714 {
+    bda:LG04944F1D13EC9563
+        a                   adm:UpdateData ;
+        adm:logDate         "2010-10-20T15:02:00.066Z"^^xsd:dateTime ;
+        adm:logMessage      "bcos"@en ;
+        adm:logWho          bdu:U00021 .
+    
+    bda:LG9C37210A5B76BD89
+        a                   adm:InitialDataCreation ;
+        adm:logDate         "2010-04-30T15:57:03.61Z"^^xsd:dateTime ;
+        adm:logWho          bdu:U00003 .
+    
+    bda:O2DB95714  a        adm:AdminData ;
+        adm:adminAbout      bdr:O2DB95714 ;
+        adm:facetIndex      24 ;
+        adm:gitPath         "cd/O2DB95714.trig" ;
+        adm:gitRepo         bda:GR0016 ;
+        adm:gitRevision     "547c53edfdf59b6641905d2ffb1519c44762e57a" ;
+        adm:graphId         bdg:O2DB95714 ;
+        adm:logEntry        bda:LG04944F1D13EC9563 , bda:LG9C37210A5B76BD89 ;
+        adm:status          bda:StatusReleased .
+    
+    bdr:CL33C83843E24B47B5
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  166 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  15 .
+    
+    bdr:CL53544BCE0023AF78
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  17 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  17 .
+    
+    bdr:CL58DDAA8D571FD19B
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  17 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  16 .
+    
+    bdr:CL650C100BE111E24C
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  21 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  19 .
+    
+    bdr:CL67AFC52E93DABA41
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  19 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  17 .
+    
+    bdr:CL8577ED2654E9AACD
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  166 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  21 .
+    
+    bdr:CLA3C44C931EAE9875
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  7 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  7 .
+    
+    bdr:CLC37E4A96F00A4105
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  312 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  167 .
+    
+    bdr:CLD32C377A8E7B7B4D
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  14 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  11 .
+    
+    bdr:CLDD5D083CE9833180
+        a                   bdo:ContentLocation ;
+        bdo:contentLocationEndPage  9 ;
+        bdo:contentLocationInstance  bdr:W21752 ;
+        bdo:contentLocationPage  9 .
+    
+    bdr:MW21752  bdo:hasOutline  bdr:O2DB95714 ;
+        bdo:hasPart         bdr:MW21752_0E64C6 , bdr:MW21752_418319 , bdr:MW21752_592283 , bdr:MW21752_6F35B8 , bdr:MW21752_EAA383 .
+    
+    bdr:MW21752_0E64C6
+        a                   bdo:Instance ;
+        skos:prefLabel      "dkar chag"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CLDD5D083CE9833180 ;
+        bdo:contentLocationStatement  "p. 1 (1st group)" ;
+        bdo:hasTitle        bdr:TT2F37189F98A19EB1 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD103573" ;
+        bdo:partIndex       2 ;
+        bdo:partOf          bdr:MW21752 ;
+        bdo:partTreeIndex   "2" ;
+        bdo:partType        bdr:PartTypeTableOfContent .
+    
+    bdr:MW21752_22B553
+        a                   bdo:Instance ;
+        skos:prefLabel      "gang du sku bltams pa'i yul ngos bzung ba/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL58DDAA8D571FD19B ;
+        bdo:contentLocationStatement  "p. 2" ;
+        bdo:hasTitle        bdr:TT1ECC46854DF003C3 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1083841PD108386" ;
+        bdo:partIndex       1 ;
+        bdo:partOf          bdr:MW21752_418319 ;
+        bdo:partTreeIndex   "4.1" ;
+        bdo:partType        bdr:PartTypeChapter .
+    
+    bdr:MW21752_418319
+        a                   bdo:Instance ;
+        skos:prefLabel      "dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL33C83843E24B47B5 ;
+        bdo:contentLocationStatement  "p. 1 (3rd group)" ;
+        bdo:hasPart         bdr:MW21752_22B553 , bdr:MW21752_571126 , bdr:MW21752_6503D0 , bdr:MW21752_B05594 , bdr:MW21752_C9D9AA ;
+        bdo:hasTitle        bdr:TT3B6FB7786F62284A , bdr:TT9294C162ED3E656E ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:instanceOf      bdr:WA0XL418319AB3DB0 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB95715" ;
+        bdo:partIndex       4 ;
+        bdo:partOf          bdr:MW21752 ;
+        bdo:partTreeIndex   "4" ;
+        bdo:partType        bdr:PartTypeText .
+    
+    bdr:MW21752_571126
+        a                   bdo:Instance ;
+        skos:prefLabel      "thog mar gsan bsam mdzad pa'i gnas bstan pa dang tha mar phyogs med rgyal khams kun la 'grims tshul/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL8577ED2654E9AACD ;
+        bdo:contentLocationStatement  "p. 7" ;
+        bdo:hasTitle        bdr:TT3AA19DCC9362A92F ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1083841PD1083861PD1083871PD1083881PD1083891PD108391" ;
+        bdo:partIndex       5 ;
+        bdo:partOf          bdr:MW21752_418319 ;
+        bdo:partTreeIndex   "4.5" ;
+        bdo:partType        bdr:PartTypeChapter .
+    
+    bdr:MW21752_592283
+        a                   bdo:Instance ;
+        skos:prefLabel      "gleng gzhi/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CLD32C377A8E7B7B4D ;
+        bdo:contentLocationStatement  "p. 1 (2nd group)" ;
+        bdo:hasTitle        bdr:TT7CC8CD187E6DF894 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD108384" ;
+        bdo:partIndex       3 ;
+        bdo:partOf          bdr:MW21752 ;
+        bdo:partTreeIndex   "3" ;
+        bdo:partType        bdr:PartTypeText .
+    
+    bdr:MW21752_6503D0
+        a                   bdo:Instance ;
+        skos:prefLabel      "sku bltams pa'i lo tshigs brjod pa/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL650C100BE111E24C ;
+        bdo:contentLocationStatement  "p. 5" ;
+        bdo:hasTitle        bdr:TTD06A4DE7B56F7EE6 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1083841PD1083861PD1083871PD1083881PD108389" ;
+        bdo:partIndex       4 ;
+        bdo:partOf          bdr:MW21752_418319 ;
+        bdo:partTreeIndex   "4.4" ;
+        bdo:partType        bdr:PartTypeChapter .
+    
+    bdr:MW21752_6F35B8
+        a                   bdo:Instance ;
+        skos:prefLabel      "hor khang bsod nams dpal 'bar gyis bris pa'i deb 'di'i mgo brjod/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CLA3C44C931EAE9875 ;
+        bdo:hasTitle        bdr:TTD17FD80FCF3E7302 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:instanceOf      bdr:WA0XL6F35B8417A50 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1035731PD103575" ;
+        bdo:partIndex       1 ;
+        bdo:partOf          bdr:MW21752 ;
+        bdo:partTreeIndex   "1" ;
+        bdo:partType        bdr:PartTypeText .
+    
+    bdr:MW21752_B05594
+        a                   bdo:Instance ;
+        skos:prefLabel      "yab dang yum gyi mtshan brjod pa/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL53544BCE0023AF78 ;
+        bdo:contentLocationStatement  "p. 3" ;
+        bdo:hasTitle        bdr:TTF5C8B0908FD0DEC5 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1083841PD1083861PD108387" ;
+        bdo:partIndex       2 ;
+        bdo:partOf          bdr:MW21752_418319 ;
+        bdo:partTreeIndex   "4.2" ;
+        bdo:partType        bdr:PartTypeChapter .
+    
+    bdr:MW21752_C9D9AA
+        a                   bdo:Instance ;
+        skos:prefLabel      "ji ltar lhums su zhugs pa'i tshul brjod pa/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CL67AFC52E93DABA41 ;
+        bdo:contentLocationStatement  "p. 3" ;
+        bdo:hasTitle        bdr:TTE86FD03BE41CD42A ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB957151PD1083841PD1083861PD1083871PD108388" ;
+        bdo:partIndex       3 ;
+        bdo:partOf          bdr:MW21752_418319 ;
+        bdo:partTreeIndex   "4.3" ;
+        bdo:partType        bdr:PartTypeChapter .
+    
+    bdr:MW21752_EAA383
+        a                   bdo:Instance ;
+        skos:prefLabel      "bod chen po'i srid lugs dang 'brel ba'i rgyal rabs deb ther dkar po'i gzhung gi dka' gnad zin bris pad dkar chun 'phyangs/"@bo-x-ewts ;
+        bdo:contentLocation  bdr:CLC37E4A96F00A4105 ;
+        bdo:contentLocationStatement  "p. 153" ;
+        bdo:hasTitle        bdr:TT106B15CE13365DC7 ;
+        bdo:inRootInstance  bdr:MW21752 ;
+        bdo:instanceOf      bdr:WA0XLEAA383769CFA ;
+        bdo:legacyOutlineNodeRID  "O2DB957142DB95717" ;
+        bdo:partIndex       5 ;
+        bdo:partOf          bdr:MW21752 ;
+        bdo:partTreeIndex   "5" ;
+        bdo:partType        bdr:PartTypeText .
+    
+    bdr:O2DB95714  a        bdo:Outline ;
+        bdo:authorshipStatement  "Bumu Dega; outlined with the gracious support of the khyentse foundation"@en ;
+        bdo:legacyOutlineNodeRID  "O2DB95714" ;
+        bdo:outlineOf       bdr:MW21752 ;
+        bdo:outlineType     bdr:OutlineTypeNoType ;
+        bdo:paginationType  bdr:PaginationAbsolute .
+    
+    bdr:TT106B15CE13365DC7
+        a                   bdo:Title ;
+        rdfs:label          "bod chen po'i srid lugs dang 'brel ba'i rgyal rabs deb ther dkar po'i gzhung gi dka' gnad zin bris pad dkar chun 'phyangs/"@bo-x-ewts .
+    
+    bdr:TT1ECC46854DF003C3
+        a                   bdo:Title ;
+        rdfs:label          "gang du sku bltams pa'i yul ngos bzung ba/"@bo-x-ewts .
+    
+    bdr:TT2F37189F98A19EB1
+        a                   bdo:Title ;
+        rdfs:label          "dkar chag"@bo-x-ewts .
+    
+    bdr:TT3AA19DCC9362A92F
+        a                   bdo:Title ;
+        rdfs:label          "thog mar gsan bsam mdzad pa'i gnas bstan pa dang tha mar phyogs med rgyal khams kun la 'grims tshul/"@bo-x-ewts .
+    
+    bdr:TT3B6FB7786F62284A
+        a                   bdo:TitlePageTitle ;
+        rdfs:label          "'dzam gling rig pa'i dpa' bo rdo brag dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"@bo-x-ewts .
+    
+    bdr:TT7CC8CD187E6DF894
+        a                   bdo:Title ;
+        rdfs:label          "gleng gzhi/"@bo-x-ewts .
+    
+    bdr:TT9294C162ED3E656E
+        a                   bdo:Title ;
+        rdfs:label          "dge 'dun chos 'phel gyi byung ba brjod pa bden gtam rna ba'i bcud len/"@bo-x-ewts .
+    
+    bdr:TTD06A4DE7B56F7EE6
+        a                   bdo:Title ;
+        rdfs:label          "sku bltams pa'i lo tshigs brjod pa/"@bo-x-ewts .
+    
+    bdr:TTD17FD80FCF3E7302
+        a                   bdo:Title ;
+        rdfs:label          "hor khang bsod nams dpal 'bar gyis bris pa'i deb 'di'i mgo brjod/"@bo-x-ewts .
+    
+    bdr:TTE86FD03BE41CD42A
+        a                   bdo:Title ;
+        rdfs:label          "ji ltar lhums su zhugs pa'i tshul brjod pa/"@bo-x-ewts .
+    
+    bdr:TTF5C8B0908FD0DEC5
+        a                   bdo:Title ;
+        rdfs:label          "yab dang yum gyi mtshan brjod pa/"@bo-x-ewts .
+    
+    bdr:WA0XL418319AB3DB0
+        bdo:workHasInstance  bdr:MW21752_418319 .
+    
+    bdr:WA0XL6F35B8417A50
+        bdo:workHasInstance  bdr:MW21752_6F35B8 .
+    
+    bdr:WA0XLEAA383769CFA
+        bdo:workHasInstance  bdr:MW21752_EAA383 .
+}
